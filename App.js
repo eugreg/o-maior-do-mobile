@@ -1,11 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+import Header from './src/components/Header';
 export default function App() {
+  const tasks=[
+    {fruta: "maça", caloria: 120},
+    {fruta: "pera", caloria: 110},
+    {fruta: "uva", caloria: 100},
+    {fruta: "laranja", caloria: 130},
+  ]
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Header />
+      <FlatList data={ tasks} renderItem={({ item }) => <Text>{item.fruta}-{item.caloria}</Text>}/>
     </View>
   );
 }
